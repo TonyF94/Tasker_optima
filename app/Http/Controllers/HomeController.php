@@ -7,6 +7,8 @@ use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Support\Facades\Http;
+
 
 
 
@@ -64,8 +66,14 @@ class HomeController extends Controller implements HasMiddleware
     // pagina iniziale del sito web senza login
     
     public function home(){
-        return view('home.index');
+        
+        $quotes = Http::get('https://api.adviceslip.com/advice')->json('slip');
+        // dd($quotes);
+        //!return view('prodotti', [$products=>'product']);
+        return view('home.index', compact('quotes'));
     }
+    
+    
     
     public static function middleware():array{
         return [

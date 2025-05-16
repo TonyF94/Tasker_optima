@@ -39,7 +39,6 @@
             <div class="card">
                 <div class="card-body pb-0 p-3 ">
 
-
                     <div class="row">
 
                         <div class="col-12 d-flex align-items-center justify-content-center">
@@ -81,9 +80,9 @@
                                     <select name="statusFilter" class="form-control" id="filter-form-task-status">
                                         <option {{ $statusFilter == 'all' ? 'selected' : '' }} value="all">All</option>
                                         <option {{ $statusFilter == 'completed' ? 'selected' : '' }} value="completed">
-                                            Completed</option>
+                                            Completato</option>
                                         <option {{ $statusFilter == 'incomplete' ? 'selected' : '' }} value="incomplete">
-                                            Incomplete</option>
+                                            Da completare</option>
                                     </select>
                                 </div>
                             </div>
@@ -112,16 +111,16 @@
                                         <div class="col-9 my-auto">
                                             <div class="d-flex flex-column">
                                                 <h6 class="mb-3 text-sm">{{ $task->name }}</h6>
-                                                <span class="mb-2 text-xs">Project Name: <span
+                                                <span class="mb-2 text-xs">Nome progetto: <span
                                                         class="text-dark font-weight-bold ms-sm-2">{{ $task->project_name }}</span></span>
-                                                <span class="mb-2 text-xs">Status:
+                                                <span class="mb-2 text-xs">Stato:
                                                     @if ($task->is_completed)
-                                                        <span class="badge badge-sm bg-gradient-success">COMPLETED</span>
+                                                        <span class="badge badge-sm bg-gradient-success">COMPLETATO</span>
                                                     @else
-                                                        <span class="badge badge-sm bg-gradient-warning">INCOMPLETE</span>
+                                                        <span class="badge badge-sm bg-gradient-warning">DA COMPLETARE</span>
                                                     @endif
                                                 </span>
-                                                <span class="text-xs">Complete:
+                                                <span class="text-xs">Segna come completato:
                                                     <span class="text-dark ms-sm-2 font-weight-bold">
                                                         <input type="checkbox" class="toggle-completion"
                                                             data-task-id="{{ $task->id }}"
@@ -139,7 +138,8 @@
                                                 <button class="btn btn-link text-danger text-gradient px-3 mb-0"
                                                     data-bs-toggle="modal"
                                                     data-bs-target="#delete-task-id-{{ $task->id }}"><i
-                                                        class="far fa-trash-alt me-2" aria-hidden="true"></i>Cancella</button>
+                                                        class="far fa-trash-alt me-2"
+                                                        aria-hidden="true"></i>Cancella</button>
                                             </div>
                                         </div>
                                     </div>
@@ -211,7 +211,8 @@
                                     <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h6 class="modal-title" id="modal-title-notification">È richiesta la tua attenzione</h6>
+                                                <h6 class="modal-title" id="modal-title-notification">È richiesta la tua
+                                                    attenzione</h6>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close">
                                                     <span aria-hidden="true">×</span>
@@ -221,7 +222,8 @@
                                                 <div class="py-3 text-center">
                                                     <i style="font-size: 35px!important;"
                                                         class="far fa-trash-alt text-gradient text-danger"></i>
-                                                    <h4 class="text-gradient text-danger mt-4">Sei sicuro che vuoi cancellarlo?</h4>
+                                                    <h4 class="text-gradient text-danger mt-4">Sei sicuro che vuoi
+                                                        cancellarlo?</h4>
                                                     <p>Sei sicuro che vuoi eliminare questa task?</p>
                                                 </div>
                                             </div>
@@ -241,7 +243,8 @@
 
                                     <i style="font-size: 40px" class="fa fa-warning text-muted"></i>
 
-                                    <h4 class="text-muted mt-2">Nessuna task al momento! Prova ad aggiungerne una nuova!</h4>
+                                    <h4 class="text-muted mt-2">Nessuna task al momento! Prova ad aggiungerne una nuova!
+                                    </h4>
 
                                 </div>
                             </div>
@@ -341,7 +344,8 @@
 
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn bg-gradient-primary">Salva Cambiamenti</button>
+                                                    <button type="submit" class="btn bg-gradient-primary">Salva
+                                                        Cambiamenti</button>
                                                     <button type="button" class="btn btn-link  ml-auto"
                                                         data-bs-dismiss="modal">Chiudi</button>
                                                 </div>
@@ -368,8 +372,10 @@
                                                 <div class="py-3 text-center">
                                                     <i style="font-size: 35px!important;"
                                                         class="far fa-trash-alt text-gradient text-danger"></i>
-                                                    <h4 class="text-gradient text-danger mt-4">Sei sicuro che vuoi cancellarlo?</h4>
-                                                    <p>Sei sicuro di voler eliminare questo progetto? Le task che dipendono da esso saranno anch'esse eliminate.</p>
+                                                    <h4 class="text-gradient text-danger mt-4">Sei sicuro che vuoi
+                                                        cancellarlo?</h4>
+                                                    <p>Sei sicuro di voler eliminare questo progetto? Le task che dipendono
+                                                        da esso saranno anch'esse eliminate.</p>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -429,7 +435,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="add-project-form-project-name" class="form-control-label">Nome Progetto</label>
+                                    <label for="add-project-form-project-name" class="form-control-label">Nome
+                                        Progetto</label>
                                     <input class="form-control" id="add-project-form-project-name" name="name"
                                         type="text" required>
                                 </div>
@@ -438,7 +445,8 @@
                         <div class="row mt-2">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="add-project-form-project-color" class="form-control-label">Colore Progetto</label>
+                                    <label for="add-project-form-project-color" class="form-control-label">Colore
+                                        Progetto</label>
                                     <input class="form-control" type="color" id="add-project-form-project-color"
                                         name="color" value="#636e72">
                                 </div>
@@ -533,7 +541,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            
+
             document.querySelectorAll('.toggle-completion').forEach(function(checkbox) {
                 checkbox.addEventListener('change', function() {
                     const isCompleted = this.checked;
@@ -589,8 +597,8 @@
                                 listItem.find('.badge').removeClass('bg-gradient-warning')
                                     .addClass('bg-gradient-success').text('COMPLETED');
                                 iziToast.success({
-                                    title: 'Successful',
-                                    message: 'Task marked as completed.',
+                                    title: 'Operazione riuscita',
+                                    message: 'Task contrassegnato come completato.',
                                     position: 'topRight'
                                 });
                             } else {
@@ -601,23 +609,23 @@
                                 listItem.find('.badge').removeClass('bg-gradient-success')
                                     .addClass('bg-gradient-warning').text('INCOMPLETE');
                                 iziToast.success({
-                                    title: 'Successful',
-                                    message: 'Task marked as incomplete.',
+                                    title: 'Operazione riuscita',
+                                    message: 'Task contrassegnato come non completato.',
                                     position: 'topRight'
                                 });
                             }
                         } else {
                             iziToast.error({
-                                title: 'Error',
-                                message: 'An error occurred while updating task status.',
+                                title: 'Errore',
+                                message: 'Si è verificato un errore durante l\'aggiornamento dello stato del task.',
                                 position: 'topRight'
                             });
                         }
                     },
                     error: function(xhr) {
                         iziToast.error({
-                            title: 'Error',
-                            message: 'An error occurred while updating task status.',
+                            title: 'Errore',
+                            message: 'Si è verificato un errore durante l\'aggiornamento dello stato del task.',
                             position: 'topRight'
                         });
                     }
@@ -644,22 +652,22 @@
                         success: function(response) {
                             if (response.success) {
                                 iziToast.success({
-                                    title: 'Successful',
-                                    message: 'Task order updated.',
+                                    title: 'Operazione riuscita',
+                                    message: 'Ordine del task aggiornato.',
                                     position: 'topRight'
                                 });
                             } else {
                                 iziToast.error({
-                                    title: 'Error',
-                                    message: 'An error occurred while updating the task sequence.',
+                                    title: 'Errore',
+                                    message: 'Si è verificato un errore durante l\'aggiornamento della sequenza dei task.',
                                     position: 'topRight'
                                 });
                             }
                         },
                         error: function(xhr) {
                             iziToast.error({
-                                title: 'Error',
-                                message: 'An error occurred while updating the task sequence.',
+                                title: 'Errore',
+                                message: 'Si è verificato un errore durante l\'aggiornamento della sequenza dei task.',
                                 position: 'topRight'
                             });
                         }

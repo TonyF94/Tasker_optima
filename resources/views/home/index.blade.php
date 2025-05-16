@@ -19,6 +19,7 @@
 <div class="row mb-5">
     <div class="col-12 align-items-center text-center">
         <h1 class="mt-5">Task Management System by Optima Task Team</h1>
+        <h2 class="mt-5 citazioni">{{$quotes['advice']}}</h2>
     </div>
 </div>
 
