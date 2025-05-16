@@ -17,7 +17,7 @@
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         @auth
-                        {{ Auth::user()->name }}
+                            {{ Auth::user()->name }}
                         @endauth
                     </a>
                     <ul class="dropdown-menu">
@@ -38,16 +38,10 @@
                         @endauth
                     </ul>
                 </li>
-                @guest
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('login') }}">Login</a>
-                </li>
-                @endguest
             </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+            @guest
+                    <a class="nav-link active" aria-current="page" href="{{ route('login') }}">Login</a>
+            @endguest
         </div>
     </div>
 </nav>

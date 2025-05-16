@@ -1,0 +1,589 @@
+/* STILI GLOBALI E RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f4f5f7;
+  color: #172b4d;
+}
+
+/* Layout per pagine con contenuto centrato e footer sticky (login, register) */
+body.layout-sticky-footer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* HEADER */
+header {
+  background-color: #026aa7;
+  padding: 1rem 2rem;
+  color: white;
+  display: flex;
+  /* justify-content: space-between; Rimosso per un centraggio più robusto dell'h1 */
+  align-items: center;
+}
+
+header h1 {
+  flex-grow: 1; /* Permette all'h1 di occupare lo spazio disponibile */
+  text-align: center; /* Centra il testo all'interno dell'h1 */
+  font-size: 1.5rem;
+  /* Aggiungi un po' di margine per evitare che il testo sia troppo vicino al logo o alla nav */
+  margin: 0 1rem;
+}
+
+/* Stile per l'elemento nav all'interno dell'header */
+header nav {
+  margin-left: auto; /* Spinge la navigazione all'estrema destra */
+  display: flex; /* Assicura che i link interni si allineino correttamente */
+}
+
+nav a {
+  color: white;
+  margin-left: 1rem;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* CONTAINER */
+.container {
+  padding: 2rem;
+}
+
+.container-centered-content { /* Usato in login.html, register.html */
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-max-width-1000 { /* Usato in task_personali.html */
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.container-max-width-900 { /* Usato in profilo.html */
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: #5e6c84;
+  font-size: 0.9rem;
+}
+
+footer.footer-alt-bg { /* Usato in login.html, register.html */
+  background-color: #e9ecef;
+}
+
+footer.footer-offset-top { /* Usato in profilo.html */
+  margin-top: 2rem;
+}
+
+/* --- STILI SPECIFICI PER WELCOME.HTML --- */
+.welcome-box {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 2rem auto; /* Mantiene il box centrato se il container non ha max-width */
+  text-align: center;
+}
+
+.welcome-box h2 {
+  margin-bottom: 1rem;
+}
+
+.boards-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.board-card {
+  background-color: #dfe1e6;
+  padding: 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.board-card:hover {
+  background-color: #cfd4da;
+  transform: scale(1.05);
+}
+
+.board-card a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* --- STILI SPECIFICI PER TASK_PERSONALI.HTML --- */
+.board-title { /* Usato anche in profilo.html */
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #172b4d; 
+}
+
+.lists {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+.list {
+  background-color: #ebecf0;
+  border-radius: 6px;
+  padding: 1rem;
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.list h3 {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  position: relative;
+  transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.3s ease;
+}
+
+.card:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.03);
+}
+
+.checkmark {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #adb5bd;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.checkmark::before {
+  content: '✔';
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  display: none;
+  line-height: 1;
+}
+
+.checkmark.checked {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.checkmark.checked::before {
+  display: inline;
+}
+
+.card.completed {
+  opacity: 0.5;
+}
+
+.card.completed .card-text {
+  text-decoration: line-through;
+}
+
+.delete-task {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  cursor: pointer;
+  color: #6c757d;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 2px 5px;
+  line-height: 1;
+  border-radius: 3px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.delete-task:hover {
+  color: #dc3545;
+}
+
+.add-task-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.add-task-form input[type="text"] {
+  flex-grow: 1;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.add-task-form button {
+  padding: 0.75rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.add-task-form button:hover {
+  background-color: #0056b3;
+}
+
+/* --- STILI SPECIFICI PER REGISTER.HTML --- */
+.register-box {
+  background-color: white;
+  padding: 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
+}
+
+.register-box h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  color: #172b4d;
+}
+
+.register-form div {
+  margin-bottom: 1.1rem;
+  text-align: left;
+}
+
+.register-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #5e6c84;
+}
+
+.register-form input[type="text"],
+.register-form input[type="email"],
+.register-form input[type="password"] {
+  width: 100%;
+  padding: 0.85rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: #f8f9fa;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.register-form input[type="text"]:focus,
+.register-form input[type="email"]:focus,
+.register-form input[type="password"]:focus {
+  outline: none;
+  border-color: #007bff;
+  background-color: #fff;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.register-form button {
+  width: 100%;
+  padding: 0.85rem 1.5rem;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+  margin-top: 0.5rem;
+}
+
+.register-form button:hover {
+  background-color: #218838;
+}
+
+.login-link { /* Usato in register.html */
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+}
+.login-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* --- STILI SPECIFICI PER PROFILO.HTML --- */
+.profile-section {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.profile-image-container {
+  text-align: center;
+  flex-basis: 200px;
+  flex-shrink: 0;
+}
+
+#profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #026aa7;
+  margin-bottom: 1rem;
+  background-color: #e0e0e0;
+}
+
+#change-image-button {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+#change-image-button:hover {
+  background-color: #0056b3;
+}
+
+.profile-details-form {
+  flex-grow: 1;
+}
+
+.profile-details-form h3 {
+  margin-bottom: 1.5rem;
+  color: #172b4d;
+  font-size: 1.3rem;
+}
+
+#profile-form div {
+  margin-bottom: 1rem;
+}
+
+#profile-form label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+  color: #5e6c84;
+}
+
+#profile-form input[type="text"],
+#profile-form input[type="email"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: #f8f9fa;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+#profile-form input:disabled {
+  color: #6c757d;
+  cursor: not-allowed;
+  background-color: #e9ecef;
+}
+
+#profile-form input:not(:disabled) {
+    background-color: #fff;
+}
+
+.form-actions {
+  margin-top: 1.5rem;
+}
+
+.form-actions button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+  transition: background-color 0.2s ease;
+}
+
+#edit-profile-button {
+  background-color: #6c757d;
+  color: white;
+}
+#edit-profile-button:hover {
+  background-color: #5a6268;
+}
+
+#save-profile-button {
+  background-color: #28a745;
+  color: white;
+}
+#save-profile-button:hover {
+  background-color: #218838;
+}
+#save-profile-button:disabled {
+  background-color: #adb5bd;
+  color: #6c757d;
+  cursor: not-allowed;
+}
+#save-profile-button:disabled:hover {
+  background-color: #adb5bd;
+}
+
+@media (max-width: 768px) {
+  .profile-section {
+    flex-direction: column;
+    align-items: center;
+  }
+  .profile-image-container {
+    margin-bottom: 2rem;
+    flex-basis: auto;
+  }
+  .profile-details-form {
+    width: 100%;
+  }
+}
+
+/* --- STILI SPECIFICI PER LOGIN.HTML --- */
+.login-box {
+  background-color: white;
+  padding: 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.login-box h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  color: #172b4d;
+}
+
+.login-form div {
+  margin-bottom: 1.25rem;
+  text-align: left;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #5e6c84;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 0.85rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: #f8f9fa;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+  outline: none;
+  border-color: #007bff;
+  background-color: #fff;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.login-form button {
+  width: 100%;
+  padding: 0.85rem 1.5rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+  margin-top: 0.5rem;
+}
+
+.login-form button:hover {
+  background-color: #0056b3;
+}
+
+.register-link { /* Usato in login.html */
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+}
+.register-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+
+/* STILI PER NOTIFICHE TOAST (usato in task_personali.html, profilo.html) */
+.toast {
+  visibility: hidden;
+  min-width: 280px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1000;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+  font-size: 1rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s, bottom 0.3s ease-in-out;
+}
+.toast.success {
+  background-color: #28a745;
+}
+
+.toast.show {
+  visibility: visible;
+  opacity: 1;
+  bottom: 50px;
+}
+
+.header-logo {
+  height: 35px; /* Altezza effettiva del logo */
+  width: auto; /* Mantiene le proporzioni dell'immagine */
+  margin-right: 1rem; /* Aggiunge spazio a destra del logo */
+}

@@ -4,7 +4,7 @@
 
     <div class="row mt-5">
         <div class="col-12">
-            <div class="card h-100">
+            {{-- <div class="card h-100">
                 <div class="card-header pb-0 p-3">
                     <div class="row">
                         <div class="col-12 align-items-center text-center">
@@ -29,7 +29,7 @@
                 <div class="card-body p-3 pb-0">
 
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 

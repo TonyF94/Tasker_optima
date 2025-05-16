@@ -1,45 +1,38 @@
-@extends('system.app')
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-6 d-flex justify-content-center align-items-center flex-column">
-                {{-- sezione iniziale --}}
-                <section class="d-flex justify-content-center align-items-center flex-column p-4">
-                    <h1 class="text-center">Cattura, organizza e affronta le tue cose da fare ovunque tu sia.</h1>
-                    <p class="text-center">Scappa dal disordine e dal caos, libera la tua produttività con Optima Task.
-                    </p>
-                    {{-- form di login al sito --}}
+@extends('system.app') {{-- Estende il layout base --}}
 
-                    <form class="row g-3 mt-4">
-                        <div class="col-auto ">
-                            <label for="email" class="visually-hidden">Password</label>
-                            <input type="text" class="form-control" id="email"
-                                placeholder="Inserisci la tua email">
-                        </div>
-                        <div class="col-auto">
-                            <button type="submit" class="btn btn-primary mb-3">Iscriviti</button>
-                        </div>
-                    </form>
-                </section>
-            </div>
+@section('title', 'Benvenuto - Bacheca') {{-- Definisce il titolo della pagina --}}
 
-            <div class="col-6 text-center">
-                <img src="{{ Storage::url('copertina.jpg') }}" alt="home" class="">
-            </div>
-        </div>
+@section('navigation') {{-- Definisce la navigazione specifica --}}
+    <a href="#">Home</a>
+    <a href="{{ url('/profilo') }}">Profilo</a> {{-- Usa helper url() o route() --}}
+    <a href="{{ url('/logout') }}">Esci</a> {{-- Usa helper url() o route() --}}
+@endsection
 
 
-        {{-- seconda sezione --}}
 
-        <div class="row">
-            <div class="col-6 d-flex justify-content-center align-items-center flex-column">
-                <img src="{{ Storage::url('email-todos.webp') }}" alt="home" class="">
-            </div>
 
-            <div class="col-6 text-center">
-                <section class="d-flex justify-content-center align-items-center flex-column p-4">
-                    <h2 class="text-center">Dimentica i foglietti sparsi ovunque.</h2>
-                    <p class="text-center">Abbandona il disordine e ritrova la tua produttività con Optima Task, il modo
-                        migliore per organizzare le tue attività senza stress.</p>
-                </section>
-            </div>
-        </div>
+{{-- @endsection --}}
+
+@section('content') {{-- Definisce il contenuto principale --}}
+
+
+<div class="row mb-5">
+    <div class="col-12 align-items-center text-center">
+        <h1 class="mt-5">Task Management System by Optima Task Team</h1>
+    </div>
+</div>
+
+<div class="welcome-box pt-5">
+    <h2>Benvenuto nella tua Bacheca</h2>
+    <p>Qui puoi gestire i tuoi progetti e le tue attività in modo semplice e veloce.</p>
+
+    <div class="boards-preview">
+        <div class="board-card">📌 Progetto Marketing</div>
+        <div class="board-card"> <a href="{{ route('home.index') }}">📝 Task Personali</a></div> {{-- Usa helper url() o route() --}}
+        <div class="board-card">👥 Team Dev</div>
+        <div class="board-card">🧠 Idee & Brainstorm</div>
+    </div>
+</div>
+@endsection
+
+{{-- Non c'è bisogno di definire @section('scripts') se non ci sono script specifici per questa pagina --}}

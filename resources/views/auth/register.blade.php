@@ -1,54 +1,82 @@
-{{-- @extends('system.app') --}}
-    <header class="container mt-5 pt-4 min-vh-100">
-        <div class="row justify-content-center">
-            <h1 class="col-12 display-4 pt-1 text-center mb-2">{{ __('ui.registrati') }}</h1>
-        </div>
+@extends('system.app')
 
-        <div class="row justify-content-center mt-3">
-            <form method="POST" action="{{ route('register') }}"
-                class="col-10 col-md-8 col-lg-6 rounded shadow bg-1 px-4 px-md-5 py-4">
-                @csrf
-                <div class="mb-3">
-                    <label class="form-label" for="nameRegister">Username</label>
-                    <input type="text" class="form-control" id="nameRegister" name="name"
-                        value="{{ old('name') }}">
-                </div>
-                <div class="mb-3">
-                    <label for="emailRegister" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="emailRegister" name="email"
-                        value="{{ old('email') }}">
-                    @error('email')
-                        <div class="px-2 py-1 fst-italic bg-danger-subtle rounded mt-1">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-                <div class="mb-3">
-                    <label for="passwordRegister" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="passwordRegister" name="password">
-                    @error('password')
-                        <div class="px-2 py-1 fst-italic bg-danger-subtle rounded mt-1">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-                <div class="mb-3">
-                    <label for="passwordRegisterConfirmation" class="form-label">Conferma Password</label>
-                    <input type="password" class="form-control" id="passwordRegisterConfirmation"
-                        name="password_confirmation">
-                    @error('password_confirmation')
-                        <div class="px-2 py-1 fst-italic bg-danger-subtle rounded mt-1">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-                <div class="w-100 d-flex justify-content-center">
-                    <button type="submit" class="btn btn-cus bg-5 c-2 w-100 w-md-75 p-3 mt-4 fs-5 rounded-pill"
-                    id="btn-register">{{ __('ui.registrati') }}</button>
-                </div>
-                <div class="text-center mt-4">
-                    <a href="{{ route('login') }}" class="text-decoration-none c-2 fs-5">{{__('ui.seiGiàRegistrato')}}? {{__('ui.login')}}</a>
-                </div>
-            </form>
-        </div>
-    </header>
+@section('title', 'Registrazione - Bacheca')
+
+@section('body-class', 'layout-sticky-footer')
+@section('container-class', 'container-centered-content')
+
+@section('header-title', 'La Mia Bacheca')
+
+@section('navigation')
+
+  {{-- Navigazione rimossa per la pagina di registrazione --}}
+@endsection
+
+@section('content')
+  <div class="register-box">
+    <h2>Crea un Account</h2>
+    <form method="POST" action="{{ route('register') }}" class="register-form" id="register-id">
+      {{-- In un'applicazione Laravel reale, qui useresti la direttiva @csrf --}}
+      <div>
+        <label for="username">Nome Utente:</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <div>
+        <label for="confirm-password">Conferma Password:</label>
+        <input type="password" id="confirm-password" name="confirm-password" required>
+      </div>
+      <button type="submit" id="register-button">Registrati</button>
+    </form>
+    <div class="login-link">
+      Hai già un account? <a href="{{ url('/login') }}">Accedi</a> {{-- Usa helper url() o route() --}}
+    </div>
+  </div>
+@endsection
+
+@section('footer-class', 'footer-alt-bg')
+
+@section('scripts')
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const registerForm = document.getElementById('register-form');
+    const usernameInput = document.getElementById('username');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const confirmPasswordInput = document.getElementById('confirm-password');
+
+    if (registerForm) {
+      registerForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const username = usernameInput.value.trim();
+        const email = emailInput.value.trim();
+        const password = passwordInput.value.trim();
+        const confirmPassword = confirmPasswordInput.value.trim();
+
+        if (username === "" || email === "" || password === "" || confirmPassword === "") {
+          alert("Per favore, compila tutti i campi.");
+          return;
+        }
+
+        if (password !== confirmPassword) {
+          alert("Le password non coincidono.");
+          return;
+        }
+        // tramite una richiesta AJAX o impostando l'action del form
+        console.log('Tentativo di registrazione con:', username, email);
+        alert('Registrazione simulata con successo! Sarai reindirizzato alla pagina di login.');
+
+        window.location.href = '{{ url("/login") }}'; // Usa helper url() o route()
+      });
+    }
+  });
+</script>
+@endsection
