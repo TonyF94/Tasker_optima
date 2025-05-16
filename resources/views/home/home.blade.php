@@ -35,17 +35,27 @@
 
     <div class="row mt-5">
         <div class="col-lg-8">
+
             <div class="card">
-                <div class="card-header pb-0 px-3">
+                <div class="card-body pb-0 p-3 ">
+
+
                     <div class="row">
-                        <div class="col-6 d-flex align-items-center">
-                            <h6 class="mb-0">Tasks</h6>
+
+                        <div class="col-6 d-flex align-items-center justify-content-center">
+
+                            <h3 class="mb-0">Tasks</h6>
+
                         </div>
-                        <div class="col-6 align-items-end text-end">
-                            <button type="button" class="btn btn-sm bg-gradient-dark mb-0" data-bs-toggle="modal" data-bs-target="#add-new-task"><i class="fas fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add New Task</button>
+
+                        <div class="col-6 align-items-end text-end p-3">
+                            <button type="button" class="my-auto btn bg-gradient-primary  mt-2 w-100 text-center" data-bs-toggle="modal" data-bs-target="#add-new-task"><i class="fas fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add New Task</button>
                         </div>
+
                     </div>
+
                 </div>
+            
                 <div class="card-body pt-4 p-3">
 
                         <form action="{{ route('home.index') }}" method="get">
@@ -73,10 +83,10 @@
                                     </div>
                                 </div>
                                 <div class="col-2 my-auto">
-                                    <button type="submit" class="my-auto btn bg-gradient-dark mt-2 w-100"><i class="fas fa-search" aria-hidden="true"></i>&nbsp;&nbsp;Filter Tasks</button>
+                                    <button type="submit" class="my-auto btn bg-gradient-primary mt-2 w-100"><i class="fas fa-search" aria-hidden="true"></i>&nbsp;&nbsp;Filter Tasks</button>
                                 </div>
                                 <div class="col-2 my-auto">
-                                    <a href="{{ route('home.index') }}" class="my-auto btn bg-gradient-danger mt-2 w-100"><i class="fas fa-times" aria-hidden="true"></i>&nbsp;&nbsp;Reset Filter</a>
+                                    <a href="{{ route('home.index') }}" class="my-auto btn bg-gradient-warning mt-2 w-100"><i class="fas fa-times" aria-hidden="true"></i>&nbsp;&nbsp;Reset Filter</a>
                                 </div>
                             </div>
                         </form>
@@ -215,7 +225,7 @@
                             <h6 class="mb-0">Projects</h6>
                         </div>
                         <div class="col-6 align-items-end text-end">
-                            <button type="button" class="btn btn-sm bg-gradient-dark mb-0" data-bs-toggle="modal" data-bs-target="#add-new-project"><i class="fas fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add New Project</button>
+                            <button type="button" class="btn btn-sm bg-gradient-primary mb-0" data-bs-toggle="modal" data-bs-target="#add-new-project"><i class="fas fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add New Project</button>
                         </div>
                     </div>
 
