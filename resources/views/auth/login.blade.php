@@ -6,6 +6,18 @@
                 <div class="login-box">
                     <h2>Accedi</h2>
 
+                    <!-- Visualizzazione Errori Generali e di Validazione -->
+                    @if ($errors->any())
+                        <div style="color: red; margin-bottom: 15px; border: 1px solid red; padding: 10px; border-radius: 5px; background-color: #ffebee;">
+                            <strong style="display: block; margin-bottom: 5px;">Attenzione! Si sono verificati i seguenti errori:</strong>
+                            <ul style="margin: 0; padding-left: 20px;">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                     <form method="POST" action="{{ route('login') }}" class="login-form">
                         @csrf
 
