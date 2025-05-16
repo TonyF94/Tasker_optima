@@ -44,5 +44,12 @@ class HomeController extends Controller
             'projectFilter' => $projectFilter,
             'statusFilter' => $statusFilter,
         ]);
+        
+    }
+
+    // pagina iniziale del sito web senza login
+
+    public function home(){
+        return view('home.index');
     }
 }

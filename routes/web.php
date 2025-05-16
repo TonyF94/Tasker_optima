@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TasksController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('/index', [HomeController::class, 'home'])->name('home.home2');
 
 
 // PROJECTS ROUTES
