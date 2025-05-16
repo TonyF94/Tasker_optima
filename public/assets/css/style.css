@@ -1,4 +1,3 @@
-/* STILI GLOBALI E RESET */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,35 +10,30 @@ body {
   color: #172b4d;
 }
 
-/* Layout per pagine con contenuto centrato e footer sticky (login, register) */
 body.layout-sticky-footer {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* HEADER */
 header {
   background-color: #026aa7;
   padding: 1rem 2rem;
   color: white;
   display: flex;
-  /* justify-content: space-between; Rimosso per un centraggio più robusto dell'h1 */
   align-items: center;
 }
 
 header h1 {
-  flex-grow: 1; /* Permette all'h1 di occupare lo spazio disponibile */
-  text-align: center; /* Centra il testo all'interno dell'h1 */
+  flex-grow: 1;
+  text-align: center;
   font-size: 1.5rem;
-  /* Aggiungi un po' di margine per evitare che il testo sia troppo vicino al logo o alla nav */
   margin: 0 1rem;
 }
 
-/* Stile per l'elemento nav all'interno dell'header */
 header nav {
-  margin-left: auto; /* Spinge la navigazione all'estrema destra */
-  display: flex; /* Assicura che i link interni si allineino correttamente */
+  margin-left: auto;
+  display: flex;
 }
 
 nav a {
@@ -49,30 +43,27 @@ nav a {
   font-weight: 500;
 }
 
-/* CONTAINER */
 .container {
   padding: 2rem;
 }
 
-.container-centered-content { /* Usato in login.html, register.html */
+.container-centered-content {
   flex-grow: 1;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.container-max-width-1000 { /* Usato in task_personali.html */
+.container-max-width-1000 {
   max-width: 1000px;
   margin: 0 auto;
 }
 
-.container-max-width-900 { /* Usato in profilo.html */
+.container-max-width-900 {
   max-width: 900px;
   margin: 0 auto;
 }
 
-
-/* FOOTER */
 footer {
   text-align: center;
   padding: 2rem;
@@ -80,22 +71,21 @@ footer {
   font-size: 0.9rem;
 }
 
-footer.footer-alt-bg { /* Usato in login.html, register.html */
+footer.footer-alt-bg {
   background-color: #e9ecef;
 }
 
-footer.footer-offset-top { /* Usato in profilo.html */
+footer.footer-offset-top {
   margin-top: 2rem;
 }
 
-/* --- STILI SPECIFICI PER WELCOME.HTML --- */
 .welcome-box {
   background-color: white;
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   max-width: 600px;
-  margin: 2rem auto; /* Mantiene il box centrato se il container non ha max-width */
+  margin: 2rem auto;
   text-align: center;
 }
 
@@ -129,11 +119,10 @@ footer.footer-offset-top { /* Usato in profilo.html */
   display: block;
 }
 
-/* --- STILI SPECIFICI PER TASK_PERSONALI.HTML --- */
-.board-title { /* Usato anche in profilo.html */
+.board-title {
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
-  color: #172b4d; 
+  color: #172b4d;
 }
 
 .lists {
@@ -167,11 +156,6 @@ footer.footer-offset-top { /* Usato in profilo.html */
   gap: 0.75rem;
   position: relative;
   transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.3s ease;
-}
-
-.card:hover {
-  background-color: #f0f0f0;
-  transform: scale(1.03);
 }
 
 .checkmark {
@@ -259,7 +243,6 @@ footer.footer-offset-top { /* Usato in profilo.html */
   background-color: #0056b3;
 }
 
-/* --- STILI SPECIFICI PER REGISTER.HTML --- */
 .register-box {
   background-color: white;
   padding: 2.5rem;
@@ -327,26 +310,27 @@ footer.footer-offset-top { /* Usato in profilo.html */
   background-color: #218838;
 }
 
-.form-error-message { /* Nuova classe per i messaggi di errore dei form */
-  color: #dc3545; /* Rosso per errore */
+.form-error-message {
+  color: #dc3545;
   font-size: 0.875rem;
   margin-top: 0.3rem;
-  display: block; /* Assicura che occupi la sua riga */
+  display: block;
 }
 
-.login-link { /* Usato in register.html */
-    margin-top: 1.5rem;
-    font-size: 0.9rem;
+.login-link {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
 }
+
 .login-link a {
-    color: #007bff;
-    text-decoration: none;
-}
-.login-link a:hover {
-    text-decoration: underline;
+  color: #007bff;
+  text-decoration: none;
 }
 
-/* --- STILI SPECIFICI PER PROFILO.HTML --- */
+.login-link a:hover {
+  text-decoration: underline;
+}
+
 .profile-section {
   background-color: white;
   padding: 2rem;
@@ -383,6 +367,7 @@ footer.footer-offset-top { /* Usato in profilo.html */
   font-size: 0.9rem;
   transition: background-color 0.2s ease;
 }
+
 #change-image-button:hover {
   background-color: #0056b3;
 }
@@ -426,7 +411,7 @@ footer.footer-offset-top { /* Usato in profilo.html */
 }
 
 #profile-form input:not(:disabled) {
-    background-color: #fff;
+  background-color: #fff;
 }
 
 .form-actions {
@@ -447,6 +432,7 @@ footer.footer-offset-top { /* Usato in profilo.html */
   background-color: #6c757d;
   color: white;
 }
+
 #edit-profile-button:hover {
   background-color: #5a6268;
 }
@@ -455,14 +441,17 @@ footer.footer-offset-top { /* Usato in profilo.html */
   background-color: #28a745;
   color: white;
 }
+
 #save-profile-button:hover {
   background-color: #218838;
 }
+
 #save-profile-button:disabled {
   background-color: #adb5bd;
   color: #6c757d;
   cursor: not-allowed;
 }
+
 #save-profile-button:disabled:hover {
   background-color: #adb5bd;
 }
@@ -481,10 +470,6 @@ footer.footer-offset-top { /* Usato in profilo.html */
   }
 }
 
-
-
-
-/* --- STILI SPECIFICI PER LOGIN.HTML --- */
 .login-box {
   background-color: white;
   padding: 2.5rem;
@@ -550,20 +535,20 @@ footer.footer-offset-top { /* Usato in profilo.html */
   background-color: #0056b3;
 }
 
-.register-link { /* Usato in login.html */
-    margin-top: 1.5rem;
-    font-size: 0.9rem;
+.register-link {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
 }
+
 .register-link a {
-    color: #007bff;
-    text-decoration: none;
+  color: #007bff;
+  text-decoration: none;
 }
+
 .register-link a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
-
-/* STILI PER NOTIFICHE TOAST (usato in task_personali.html, profilo.html) */
 .toast {
   visibility: hidden;
   min-width: 280px;
@@ -582,6 +567,7 @@ footer.footer-offset-top { /* Usato in profilo.html */
   opacity: 0;
   transition: opacity 0.3s, visibility 0.3s, bottom 0.3s ease-in-out;
 }
+
 .toast.success {
   background-color: #28a745;
 }
@@ -593,7 +579,7 @@ footer.footer-offset-top { /* Usato in profilo.html */
 }
 
 .header-logo {
-  height: 50px; /* Altezza effettiva del logo */
-  width: auto; /* Mantiene le proporzioni dell'immagine */
-  margin-right: 1rem; /* Aggiunge spazio a destra del logo */
+  height: 50px;
+  width: auto;
+  margin-right: 1rem;
 }
