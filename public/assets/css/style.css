@@ -327,6 +327,13 @@ footer.footer-offset-top { /* Usato in profilo.html */
   background-color: #218838;
 }
 
+.form-error-message { /* Nuova classe per i messaggi di errore dei form */
+  color: #dc3545; /* Rosso per errore */
+  font-size: 0.875rem;
+  margin-top: 0.3rem;
+  display: block; /* Assicura che occupi la sua riga */
+}
+
 .login-link { /* Usato in register.html */
     margin-top: 1.5rem;
     font-size: 0.9rem;

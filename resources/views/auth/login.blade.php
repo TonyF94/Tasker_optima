@@ -1,3 +1,5 @@
+@extends('system.app')
+@section('content')
 <div class="login-box">
     <h2>Accedi</h2>
 
@@ -27,3 +29,4 @@
         <p>Non hai un account? <a href="{{ route('register') }}">Registrati</a></p>
     </div>
 </div>
+@endsection
