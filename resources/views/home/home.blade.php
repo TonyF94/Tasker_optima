@@ -49,7 +49,7 @@
                         </div>
 
                         <div class="col-6 align-items-end text-end p-3">
-                            <button type="button" class="my-auto btn bg-gradient-primary  mt-2" data-bs-toggle="modal" data-bs-target="#add-new-task"><i class="fas fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add New Task</button>
+                            <button type="button" class="my-auto btn bg-gradient-primary  mt-2" data-bs-toggle="modal" data-bs-target="#add-new-task"><i class="fas fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;Aggiungi Task</button>
                         </div>
 
                     </div>
@@ -442,6 +442,59 @@
 
 
     @section('extraScript')
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const incompleteCount = {{ $incompleteTasksCount }};
+
+        if (incompleteCount > 0) {
+            // Chiedi il permesso per le notifiche
+            if (Notification.permission === "granted") {
+                // Se già autorizzato, mostra notifica
+                new Notification("Hai " + incompleteCount + " task non completate!");
+            } else if (Notification.permission !== "denied") {
+                // Se non negato, chiedi permesso
+                Notification.requestPermission().then(permission => {
+                    if (permission === "granted") {
+                        new Notification("Hai " + incompleteCount + " task non completate!");
+                    }
+                });
+            }
+        }
+    });
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    // Seleziona tutte le checkbox per completare le task
+    document.querySelectorAll('.toggle-completion').forEach(function(checkbox) {
+        checkbox.addEventListener('change', function () {
+            const isCompleted = this.checked; // Determina se il task è stato completato
+            const taskId = this.dataset.taskId; // Ottieni l'ID del task dalla checkbox
+            
+            // Mostra una notifica solo per il task selezionato
+            if (Notification.permission === "granted") {
+                new Notification(isCompleted ? "Task completata!" : "Task segnata come non completata.");
+            } else if (Notification.permission !== "denied") {
+                Notification.requestPermission().then(permission => {
+                    if (permission === "granted") {
+                        new Notification(isCompleted ? "Task completata!" : "Task segnata come non completata.");
+                    }
+                });
+            }
+
+            // Aggiungi un ritardo di 1.5 secondi per il refresh della pagina
+            setTimeout(function() {
+                location.reload(); // Ricarica la pagina per aggiornare lo stato dei task
+            }, 1500);
+        });
+    });
+});
+</script>
+
+
+    
     <script>
         $(document).ready(function() {
 
