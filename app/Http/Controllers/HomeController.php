@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use App\Models\Task;
 use Illuminate\Http\Request;
-use Illuminate\routing\Controllers\Middleware;
-use Illuminate\routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
+use Illuminate\Routing\Controllers\HasMiddleware;
 
 
 

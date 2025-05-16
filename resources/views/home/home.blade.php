@@ -63,9 +63,9 @@
                                 @csrf
                                 <div class="col-3">
                                     <div class="form-group">
-                                        <label for="filter-form-task-project" class="form-control-label">Project</label>
+                                        <label for="filter-form-task-project" class="form-control-label">Progetto</label>
                                         <select name="projectFilter" class="form-control" id="filter-form-task-project">
-                                            <option value="all">All</option>
+                                            <option value="all">Tutto</option>
                                             @foreach($projects as $project)
                                                 <option {{ ($projectFilter == $project->id) ? 'selected' : '' }} value="{{ $project->id }}">{{ $project->name }}</option>
                                             @endforeach
@@ -74,11 +74,11 @@
                                 </div>
                                 <div class="col-3">
                                     <div class="form-group">
-                                        <label for="filter-form-task-status" class="form-control-label">Status</label>
+                                        <label for="filter-form-task-status" class="form-control-label">Stato</label>
                                         <select name="statusFilter" class="form-control" id="filter-form-task-status">
-                                            <option {{ ($statusFilter == 'all') ? 'selected' : '' }} value="all">All</option>
-                                            <option {{ ($statusFilter == 'completed') ? 'selected' : '' }} value="completed">Completed</option>
-                                            <option {{ ($statusFilter == 'incomplete') ? 'selected' : '' }} value="incomplete">Incomplete</option>
+                                            <option {{ ($statusFilter == 'all') ? 'selected' : '' }} value="all">Tutto</option>
+                                            <option {{ ($statusFilter == 'completed') ? 'selected' : '' }} value="completed">Completate</option>
+                                            <option {{ ($statusFilter == 'incomplete') ? 'selected' : '' }} value="incomplete">Non completate</option>
                                         </select>
                                     </div>
                                 </div>
