@@ -318,7 +318,7 @@
 
                                 <i style="font-size: 40px" class="fa fa-warning text-muted"></i>
 
-                                <h3 class="text-muted mt-2">No project attached at the moment! Try adding a new one.</h3>
+                                <h3 class="text-muted mt-2">Nessun progetto allegato al momento! Prova ad aggiungerne uno nuovo.</h3>
 
                             </div>
                         </div>
