@@ -484,7 +484,6 @@ footer.footer-offset-top { /* Usato in profilo.html */
 
 
 
-
 /* --- STILI SPECIFICI PER LOGIN.HTML --- */
 .login-box {
   background-color: white;
@@ -594,7 +593,7 @@ footer.footer-offset-top { /* Usato in profilo.html */
 }
 
 .header-logo {
-  height: 35px; /* Altezza effettiva del logo */
+  height: 50px; /* Altezza effettiva del logo */
   width: auto; /* Mantiene le proporzioni dell'immagine */
   margin-right: 1rem; /* Aggiunge spazio a destra del logo */
 }

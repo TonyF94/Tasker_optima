@@ -5,8 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use App\Models\Task;
 use Illuminate\Http\Request;
+use Illuminate\routing\Controllers\Middleware;
+use Illuminate\routing\Controllers\HasMiddleware;
 
-class HomeController extends Controller
+
+
+class HomeController extends Controller implements HasMiddleware
 {
 
     public function index(Request $request)
@@ -51,5 +55,11 @@ class HomeController extends Controller
 
     public function home(){
         return view('home.index');
+    }
+
+    public static function middleware():array{
+        return [
+            new Middleware('auth', only: ['home', 'index'])
+        ];
     }
 }
