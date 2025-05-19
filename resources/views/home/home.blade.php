@@ -259,11 +259,11 @@
             <div class="card h-100">
                 <div class="card-header pb-0 p-3">
                     <div class="row">
-                        <div class="col-12 d-flex align-items-center ">
-                            <h6 class="mb-0 mx-4">Progetti</h6>
+                        <div class="col-12 d-flex align-items-center d-flex flex-column ">
+                            <h4 class="mb-0 mx-4">Progetti</h4>
                             {{-- </div> --}}
                             {{-- <div class="col-6 align-items-end text-end"> --}}
-                            <button type="button" class="btn btn-sm bg-gradient-primary mb-0" data-bs-toggle="modal"
+                            <button type="button" class="btn btn-sm bg-gradient-primary mb-0 mt-3" data-bs-toggle="modal"
                                 data-bs-target="#add-new-project"><i class="fas fa-plus"
                                     aria-hidden="true"></i>&nbsp;&nbsp;Aggiungi un progetto</button>
                             {{-- </div> --}}
