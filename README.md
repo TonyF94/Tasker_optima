@@ -1,4 +1,4 @@
-# Laravel Task Management - Esempio
+# Laravel Task Management
 
 ## Funzionalità
 - Creare Progetto  
